@@ -1,0 +1,218 @@
+/*==========================
+            HOME
+===========================*/
+.home-grid .grid-container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr 400px 1fr;
+    height: 100vh;
+    grid-template-areas: "brand title menu togle"
+    "imageProject imageProject projectDescription autorDesign"
+    "previous lorem lorem next";
+}
+.home-grid .grid-container .brand{
+    grid-area: brand;
+    color: var(--color2);
+    padding: 40px 0px 0px 40px;
+    font-weight: 500;
+    font-size: 20px;
+}
+.home-grid .grid-container .titulo{
+    grid-area: title;
+    padding: 40px 0px 0px 40px;
+    margin: 0;
+    border-right: 2px solid var(--colorBorder);
+}
+.home-grid .grid-container .menu{
+    grid-area: menu;
+    padding: 40px 0px 0px 40px;
+    margin: 0;
+    border-right: none;
+    border-bottom: 2px solid var(--colorBorder);
+    display: flex;
+}
+.menu span{
+    margin: 0 5px;
+    padding: 2px 10px;
+    font-size: 20px;
+}
+.togle{
+    grid-area: togle;
+    display: flex;
+    justify-content: start;
+    align-items: flex-end;
+    flex-direction: column;
+    padding: 40px 40px 0px 0px;
+    border-bottom: 2px solid var(--colorBorder);
+}
+.togle span{
+    margin: 2px 0px 2px 0px;
+    width: 35px;
+    height: 3px;
+    background-color: var(--color2);
+    transition: all 0.5s ease;
+}
+.home-grid .grid-container .togle{
+    grid-area: togle;
+    margin: 0;
+}
+.home-grid .grid-container .table{
+    grid-area: imageProject;
+    border: none;
+}
+.home-grid .grid-container .table-description{
+    grid-area: projectDescription;
+    border-right: 2px solid var(--colorBorder);
+    border-bottom: 2px solid var(--colorBorder);
+    display: flex;
+    justify-content: flex-end;
+}
+.autor{
+    grid-area: autorDesign;
+    border-bottom: 2px solid var(--colorBorder);
+}
+.previous{
+    grid-area: previous;
+    border-right: 2px solid var(--colorBorder);
+    padding: 0 20px 40px 40px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+}
+.previous-container, .next-container{
+    display: flex;
+    align-items: center;
+}
+.previous .line-prev,.next .line-next{
+    width: 60px;
+    height: 2px;
+    background-color: var(--color2);
+    position: relative;
+    margin-right: 10px;
+}
+.next .line-next{
+    margin-left: 10px;
+}
+.previous .line-prev::after, .previous .line-prev::before{
+    content: '';
+    position: absolute;
+    background-color: var(--color2);
+    width: 10px;
+    height: 2px;
+}
+.previous .line-prev::after{
+    top: -3px;
+    left: -2px;
+    transform: rotate(-45deg);
+}
+.previous .line-prev::before{
+    top: 3px;
+    left: -2px;
+    transform: rotate(45deg);
+}
+.next{
+    grid-area: next;
+    display: flex;
+    padding: 0 40px 40px 20px;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+.autor-name{
+    font-size: 18px;
+    font-weight: 600;
+}
+.autor-enlace{
+    font-size: 12px;
+    color: var(--colorMenu);
+}
+.next .line-next::after, .next .line-next::before{
+    content: '';
+    position: absolute;
+    background-color: var(--color2);
+    width: 10px;
+    height: 2px;
+}
+.next .line-next::after{
+    top: -3px;
+    right: -2px;
+    transform: rotate(45deg);
+}
+.next .line-next::before{
+    top: 3px;
+    right: -2px;
+    transform: rotate(-45deg);
+}
+.lorem-description{
+    grid-area: lorem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 40px;
+    color: var(--colorMenu);
+    border-right: 2px solid var(--colorBorder);
+    font-size: 16px;
+}
+@media (max-width:990px){
+    .home-grid .grid-container{
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+        grid-template-areas: "brand togle"
+        "title autorDesign"
+        "imageProject imageProject"
+        "projectDescription lorem"
+        "previous next";
+    }
+    .home-grid .grid-container .titulo {
+        display: flex;
+        align-items: center;
+        padding: 20px 40px;
+        border: none;
+    }
+    .home-grid .grid-container .menu{
+        display: none;
+    }
+    .home-grid .grid-container .table-description{
+        border: none;
+    }
+    .autor{
+        align-items: flex-end;
+    }
+    .togle{
+        border: none;
+    }
+    .previous, .next{
+        padding: 40px;
+        border-top: 2px solid var(--colorBorder);
+    }
+}
+
+@media (max-width:620px){
+    .home-grid .grid-container{
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(8, 1fr);
+        grid-template-areas: "brand togle"
+        "title title"
+        "autorDesign autorDesign"
+        "imageProject imageProject"
+        "projectDescription projectDescription"
+        "lorem lorem"
+        "previous next";
+    }
+    .home-grid .grid-container .titulo {
+        display: flex;
+        align-items: center;
+        border: none;
+    }
+    .togle{
+        border: none;
+    }
+    .menu{
+        display: none;
+    }
+    .previous, .next{
+        padding: 20px;
+    }
+    .autor{
+        align-items: flex-start;
+    }
+}
